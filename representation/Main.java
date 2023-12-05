@@ -97,7 +97,7 @@ public class Main {
 		Node currentNode = initEpreuve(currentPerso, personnages);
 		
 		
-		while(!(currentNode instanceof TerminalNode))
+		while(!(currentNode instanceof TerminalNode)) test
 		{
 		currentNode = currentNode.chooseNext();
 		
