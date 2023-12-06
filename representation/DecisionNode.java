@@ -5,9 +5,11 @@ import univers.Outil;
 
 
 public class DecisionNode extends InnerNode {
+	Scanner scanner;
 
-	public DecisionNode(String description,int nbreOptions, int id, int pointAl, int pointAud, int pointEr, int pointFr, int pointSinc,Outil outil ) {
+	public DecisionNode(String description,int nbreOptions, int id, int pointAl, int pointAud, int pointEr, int pointFr, int pointSinc,Outil outil, Scanner scanner ) {
 		super(description, nbreOptions, id, pointAl, pointAud, pointEr, pointFr,  pointSinc, outil);
+		this.scanner = scanner;
 
 	}
 	
@@ -18,7 +20,6 @@ public class DecisionNode extends InnerNode {
 		System.out.println("Faites un choix :");
 		while(true)
 		{
-			try (Scanner scanner = new Scanner(System.in)) {
 				int choix = scanner.nextInt() - 1;
 				if(choix >= this.options.length || choix <0)
 				{
@@ -26,7 +27,6 @@ public class DecisionNode extends InnerNode {
 					continue;
 				}
 				return this.options[choix];
-			}
 		}
 	}
 
