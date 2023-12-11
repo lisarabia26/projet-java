@@ -1,19 +1,27 @@
 package representation;
 import univers.Outil;
+import java.util.Random;
+import java.util.Scanner;
 
 import univers.*;
 
 public class ChanceNode extends InnerNode {
-
-	public ChanceNode(String description,int nbreOptions, int id, int pointAl, int pointAud, int pointEr, int pointFr, int pointSinc,Outil outil) {
+	Scanner scanner;
+	public ChanceNode(String description,int nbreOptions, int id, int pointAl, int pointAud, int pointEr, int pointFr, int pointSinc,Outil outil, Scanner scanner) {
 		super(description,nbreOptions, id, pointAl, pointAud, pointEr, pointFr,  pointSinc, outil);
+		this.scanner=scanner;
 		RandomPT(outil);
 	}
 	public Node chooseNext() {
-		int choix = new java.util.Random().nextInt(this.options.length); 
+		
+		int choix = new Random().nextInt(this.options.size());
 		System.out.println(this.description);
-		return this.options[choix];
+		
+		return this.options.get(choix);
 	}
+	//int choix = new java.util.Random().nextInt(this.options.length); 
+	//return this.options[choix];
+	
 	
 	@Override
 	public void init(Personnage joueur) {

@@ -21,14 +21,19 @@ public class DecisionNode extends InnerNode {
 		while(true)
 		{
 				int choix = scanner.nextInt() - 1;
-				if(choix >= this.options.length || choix <0)
-				{
-					System.out.println(String.format("Choix incorrect veuillez entrer un nombre entre 0 et %d", this.options.length));
+				
+				if (choix >= this.options.size() || choix < 0) {
+					System.out.println(String.format("Choix incorrect veuillez entrer un nombre entre 0 et %d", this.options.size()));
 					continue;
 				}
-				return this.options[choix];
+				
+				
+				return this.options.get(choix);
 		}
+		
 	}
 
 
 }
+	//if(choix >= this.options.length || choix <0)
+	//return this.options[choix];
