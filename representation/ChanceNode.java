@@ -1,62 +1,61 @@
 package representation;
-import univers.Outil;
 import java.util.Random;
 import java.util.Scanner;
 
 import univers.*;
 
+
 public class ChanceNode extends InnerNode {
-	Scanner scanner;
-	public ChanceNode(String description,int nbreOptions, int id, int pointAl, int pointAud, int pointEr, int pointFr, int pointSinc,Outil outil, Scanner scanner) {
-		super(description,nbreOptions, id, pointAl, pointAud, pointEr, pointFr,  pointSinc, outil);
-		this.scanner=scanner;
-		RandomPT(outil);
-	}
-	public Node chooseNext() {
-		
-		int choix = new Random().nextInt(this.options.size());
-		System.out.println(this.description);
-		
-		return this.options.get(choix);
-	}
-	//int choix = new java.util.Random().nextInt(this.options.length); 
-	//return this.options[choix];
-	
-	
-	@Override
-	public void init(Personnage joueur) {
-		super.init(joueur);
-		RandomPT(joueur.outil);
-	}
-	//EST CE QUE CA MARCHE VRAIMENT ?? CHECKER EN JOUANT
+    Scanner scanner;
+    Personnage joueur;
 
-	private void RandomPT(Outil outil) {
-		int pointChance = new java.util.Random().nextInt(11) - 5; 
-	
+    public ChanceNode(String description, int nbreOptions, int id, int pointAl, int pointAud, int pointEr, int pointFr, int pointSinc, Outil outil, Scanner scanner) {
+        super(description, nbreOptions, id, pointAl, pointAud, pointEr, pointFr, pointSinc, outil);
+        this.scanner = scanner;
+        RandomPT(outil, joueur);
+    }
 
-	        if (outil instanceof Pelle) {
-	            Pelle pelle = (Pelle) outil;
-	            int newEvolution = pelle.getEvolution() + pointChance;
-	            pelle.setEvolution(newEvolution);
-	        } else if (outil instanceof Livre) {
-	            Livre livre = (Livre) outil;
-	            int newNiveauDiff = livre.getniveauDiff() + pointChance;
-	            livre.setniveauDiff(newNiveauDiff);
-	        } else if (outil instanceof Rations) {
-	            Rations rations = (Rations) outil;
-	            int newQuantite = rations.getRation() + pointChance;
-	            rations.setQuantite(newQuantite);
-	        } else if (outil instanceof SerumVerite) {
-	            SerumVerite serum = (SerumVerite) outil;
-	            int newEfficacite = serum.getEfficacite() + pointChance;
-	            serum.setEfficacite(newEfficacite);
-	        } else if (outil instanceof Arme) {
-	            Arme arme = (Arme) outil;
-	            int newPuissance = arme.getPuissance() + pointChance;
-	            arme.setPuissance(newPuissance);
-	        }
-	   
-	}
+    public Node chooseNext() {
+        int choix = new Random().nextInt(this.options.size());
+        System.out.println(this.description);
+        return this.options.get(choix);
+    }
+
+    @Override
+    public void init(Personnage joueur) {
+        super.init(joueur);
+        RandomPT(joueur.outil, joueur);
+    }
+
+    private void RandomPT(Outil outil, Personnage joueur) {
+        int pointChance = new Random().nextInt(11) - 5;
+
+        if (outil != null) {
+        	outil.setStat(outil.getStat() + pointChance);
+        } else {
+            // Ajouter la gestion des points gagnés ici pour chaque faction
+            switch (new Random().nextInt(5) + 1) {
+                case 1:
+                    pointAlGagne += pointChance;
+                    break;
+                case 2:
+                    pointAudGagne += pointChance;
+                    break;
+                case 3:
+                    pointErGagne += pointChance;
+                    break;
+                case 4:
+                    pointFrGagne += pointChance;
+                    break;
+                case 5:
+                    pointSincGagne += pointChance;
+                    break;
+            }
+            init(joueur);
+        }
+    }
+}
+
 /*notre epreuve de chancde consiste a:
  				1-on a genere un nombre aleatoire entre -5 et 5 qui va etre ajoute a la puissance de l'objet
  				2-cette epreuve va agir sur la suite de l'histoire:
@@ -96,4 +95,4 @@ public class ChanceNode extends InnerNode {
 	}
 
 */
-}
+
