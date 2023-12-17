@@ -1,4 +1,4 @@
-package representation;
+/*package representation;
 
 import univers.Outil;
 import univers.Personnage;
@@ -57,4 +57,10 @@ public class ChoixFaction extends InnerNode {
 		return null;
 	}
 
-}
+	@Override
+	public Node chooseNext() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+} */

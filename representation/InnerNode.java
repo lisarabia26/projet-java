@@ -1,7 +1,5 @@
 package representation;
 
-import univers.Personnage;
-import univers.Factions.Faction;
 import univers.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -48,17 +46,10 @@ public abstract class InnerNode extends Node {
 		joueur.setPointSinc(joueur.getPointSinc() + this.pointSincGagne);
 		if (this.outil == null)
 			return;
-		if (joueur.getFaction() == Faction.ALTRUISTE) {
-			joueur.setOutil((Rations) this.outil);
-		} else if (joueur.getFaction() == Faction.AUDACIEUX) {
-			joueur.setOutil((Arme) this.outil);
-		} else if (joueur.getFaction() == Faction.FRATERNEL) {
-			joueur.setOutil((Pelle) this.outil);
-		} else if (joueur.getFaction() == Faction.ÉRUDIT) {
-			joueur.setOutil((Livre) this.outil);
-		} else if (joueur.getFaction() == Faction.SINCÈRE) {
-			joueur.setOutil((SerumVerite) this.outil);
-		}
+	
+		Outil outil=Outil.setOutilFromFaction(joueur.getFaction());
+		joueur.setOutil(outil);
+
 	}
 
 	@Override

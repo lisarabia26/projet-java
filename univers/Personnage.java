@@ -1,4 +1,5 @@
 package univers;
+
 import univers.Factions.Faction;
 
 public class Personnage {
@@ -82,9 +83,7 @@ public class Personnage {
     public Outil getOutil() {
         return outil;
     }
-    public void setOutil(Outil outil) {
-        this.outil = outil;
-    }
+
 
     @Override
     public String toString() {
@@ -118,6 +117,13 @@ public class Personnage {
     public void setFaction(Faction faction) {
         this.faction = faction;
     }
+
+	public void setOutil(Outil outil) {
+		this.outil=outil;
+		
+	}
+
+
     
     
 }

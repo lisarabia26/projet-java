@@ -5,8 +5,7 @@ import java.util.Hashtable;
 import java.util.List;
 import univers.Factions.Faction;
 
-import javax.swing.*;
-import java.awt.*;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 
@@ -85,6 +84,7 @@ public class Main {
 						+ "Choix 1 : Affronter le chien avec détermination grâce au couteau récupéré\n"
 						+ "Choix 2 : Eviter la violence, choisir la fuite\n",
 				2, i++, 0, 3, 1, 0, 0, null, scanner);
+		dictionnaireNode.put(ChoixCouteau.getId(), ChoixCouteau);
 		DecisionNode ChoixFromage = new DecisionNode(
 				"En votre possession un fromage, symbole de partage et de subsistance, vous conduit à une situation délicate. "
 						+ "Alors que vous errez, vous retrouvez d'anciens camarades, mais la scène qui se dévoile est loin d'être réjouissante. "
@@ -94,24 +94,33 @@ public class Main {
 						+ "Choix 1: Troquer votre fromage contre des médicaments"
 						+ "Choix 2: Manger votre fromage en secret",
 				2, i++, 0, 0, 1, 3, 0, null, scanner);
+		dictionnaireNode.put(ChoixFromage.getId(), ChoixFromage);
+		
+		
 		DecisionNode ChoixLivre = new DecisionNode(
 				"Votre choix du livre, symbole de connaissance et de sagesse, vous place face à un défi inattendu. "
 						+ "Alors que vous avancez, un chien menaçant surgit, prêt à vous attaque.\n "
 						+ "Choix 1 : Baisser les yeux et vous éloigner du chien \n"
 						+ "Choix 2 : Jeter le livre sur le chien\n",
 				2, i++, 0, 0, 3, 0, 0, null, scanner);
+		dictionnaireNode.put(ChoixLivre.getId(), ChoixLivre);
+		
 		DecisionNode ChoixEcharpe = new DecisionNode(
 				"Votre choix de l'écharpe, symbole de chaleur et de réconfort, vous conduit à une rencontre inattendue. "
 						+ "Alors que vous marchez, un vent glacial s'abat sur la ville. Cependant, grâce à votre écharpe, vous restez au chaud.\n"
 						+ "Soudain, vous apercevez un vieil homme frissonnant, visiblement gelé. Deux options s'offrent à vous:\n"
 						+ "Choix 1 : Lui offrirx votre echarpe\n" + "Choix 2 : Garder votre echarpe\n",
 				2, i++, 3, 0, 0, 0, 0, null, scanner);
+		dictionnaireNode.put(ChoixEcharpe.getId(), ChoixEcharpe);
+		
+		
 		DecisionNode ChoixJournal = new DecisionNode(
 				" Votre choix du journal intime, un moyen d'expression personnelle et d'authenticité, vous amène à une situation inhabituelle."
 						+ " Vous vous retrouvez sur une estrade, face à un grand public, où chacun lit à tour de rôle son journal intime.\n"
 						+ "Dans ce moment de partage intime, deux options se présentent à vous, révélant votre approche face à la mise en lumière de votre vie privée.\n"
 						+ "Choix 1 : Lire fièrement votre journal\n" + "Choix 2 : Fuir la scène\n",
 				2, i++, 0, 0, 0, 0, 3, null, scanner);
+		dictionnaireNode.put(ChoixJournal.getId(), ChoixJournal);
 
 
 		DecisionNode ChoixFacS = new DecisionNode(
@@ -124,6 +133,8 @@ public class Main {
 						+ "Choix 2 : Jurer par la vérité, et avouer au chauffeur de bus au risque de vous faire renvoye \n",
 
 				2, i++, 0, 0, 0, 0, 3, null, scanner);
+		dictionnaireNode.put(ChoixFacS.getId(), ChoixFacS);
+		
 
 		DecisionNode ChoixAu = new DecisionNode(
 
@@ -133,6 +144,8 @@ public class Main {
 						+ "Choix 2 : Vous choisissez de ne pas vous impliquer, considérant que cela ne vous regarde pas.\n",
 
 				2, i++, 0, 3, 0, 0, 0, null, scanner);
+		dictionnaireNode.put( ChoixAu.getId(),  ChoixAu);
+		
 
 		DecisionNode ChoixAl = new DecisionNode(
 				"Vous peinez a trouver une place, cependant, au moment ou vous vous asseyez\n"
@@ -145,6 +158,9 @@ public class Main {
 
 						+ "Choix 2 : Vous restez assis \n",
 				2, i++, 3, 0, 0, 0, 0, null, scanner);
+		dictionnaireNode.put(ChoixAl.getId(),ChoixAl);
+		
+		
 
 		DecisionNode ChoixEr = new DecisionNode(
 
@@ -165,6 +181,9 @@ public class Main {
 						+ "Vous faites cela dans l'espoir que le propriétaire légitime le retrouvera\n",
 
 				2, i++, 0, 0, 3, 0, 0, null, scanner);
+		dictionnaireNode.put(ChoixEr.getId(), ChoixEr);
+		
+		
 
 		DecisionNode ChoixFr = new DecisionNode(
 				"Votre personnage repère un groupe de personnes rassemblées dans un coin du bus,\n"
@@ -183,6 +202,7 @@ public class Main {
 
 						+ "Il peut penser qu'il est plus prudent de respecter leur espace. \n",
 				2, i++, 0, 0, 0, 3, 0, null, scanner);
+		dictionnaireNode.put(ChoixFr.getId(), ChoixFr);
 
 
 
@@ -193,6 +213,7 @@ public class Main {
 				+ "Cependant, le destin a decide de vous octroyer une seconde chance  "
 
 				+ "/n Appuyez 1 pour continuer",1,  i++, 0, 0, 0, 0, 0, null, scanner);
+		dictionnaireNode.put(ChoixFuite.getId(), ChoixFuite);
 
 		
 		
@@ -206,6 +227,7 @@ public class Main {
 		        + "\n"
 		        + "Choisissez avec sagesse, votre décision impacte votre destinée et la perception "
 		        + "de votre courage par les évaluateurs.\n", 2, i++, 0, 3, 0, 0, 0, null, scanner);
+		dictionnaireNode.put(ZoneAudacieux.getId(),ZoneAudacieux);
 
 		
 		
@@ -219,6 +241,7 @@ public class Main {
 		        + "\n"
 		        + "Choisissez judicieusement, votre décision impacte votre destinée et la perception "
 		        + "de votre altruisme par les évaluateurs.\n", 2, i++, 3, 0, 0, 0, 0, null, scanner);
+		dictionnaireNode.put( ZoneAltruiste.getId(), ZoneAltruiste);
 
 		
 		
@@ -231,6 +254,7 @@ public class Main {
 		        + "\n"
 		        + "Choisissez judicieusement, votre décision impacte votre destinée et la perception "
 		        + "de votre intelligence par les évaluateurs.\n", 2, i++, 0, 0, 3, 0, 0, null, scanner);
+		dictionnaireNode.put(ZoneErudit.getId(),ZoneErudit);
 
 		
 		
@@ -244,7 +268,11 @@ public class Main {
 		        + "\n"
 		        + "Choisissez judicieusement, votre décision impacte votre destinée et la perception "
 		        + "de votre loyauté et justice par les évaluateurs.\n", 2, i++, 0, 0, 0, 3, 0, null, scanner);
-
+		dictionnaireNode.put(ZoneFraternels.getId(),ZoneFraternels);
+		
+		
+		
+		
 		DecisionNode ZoneSincere = new DecisionNode("Vous entrez dans la Zone des Sincères, "
 		        + "remplie de miroirs déformants et d'illusions. À un moment crucial, choisissez :\n"
 		        + "\n"
@@ -253,17 +281,24 @@ public class Main {
 		        + "\n"
 		        + "Choisissez avec sagesse, votre décision impacte votre destinée et la perception "
 		        + "de votre honnêteté par les évaluateurs.\n", 1, i++, 0, 0, 0, 0, 3, null, scanner);
+		dictionnaireNode.put(ZoneSincere.getId(),ZoneSincere);
+		
+		
 		
 		
 		ChanceNode epreuveChance = new ChanceNode(
                 "Vous êtes soudainement transporté dans un monde étrange où le destin semble fluctuer au gré du hasard.\n"
                         + "Une force mystérieuse façonne votre réalité. Vous sentez que quelque chose d'inattendu va se produire...",
                 2, 0, 0, 0, 0, 0, 0, null, scanner);
+		dictionnaireNode.put(epreuveChance .getId(), epreuveChance );
+		
+		
 		
 		TerminalNode Divergent = new TerminalNode (
 				"Tes choix audacieux et divergents ont tracé un chemin unique, mais dans le monde implacable de Divergente, la divergence a un prix. Les dirigeants, "
 				+ "intolérants envers la déviation, ont scellé ton destin. Ta partie s'achève ici. "
 				+ "Prépare-toi à affronter les conséquences de ta divergence.",i++);
+		dictionnaireNode.put(Divergent.getId(), Divergent);
 		
 		
 		
@@ -341,64 +376,6 @@ public class Main {
 		Hashtable<Integer,Node> dictionnaireNode=new Hashtable<Integer,Node>();
 		
 		
-		
-		
-		
-		
-		
-		// Définissez le frame uktuict-uyrvytc
-		JFrame frame = new JFrame("Personnage possible");
-		// L'en-têtes du JTable
-		String[] column = { "Nom", "Age", "description" };
-
-		// Les lignes du JTable
-		String[][] data = { { "Antoine", "16",
-				"au cœur généreux, se distingue par son empathie et son attitude bienveillante envers les autres." },
-				{ "02", "Emily", "45", "Marseille" },
-				{ "Christina", "16",
-						"Christina, au premier abord, semble être une personne qui apprécie l'exploration et l'expérience de nouvelles choses. Sa curiosité la pousse à chercher des défis et des situations qui mettent ses compétences à l'épreuve." },
-				{ "Emily", "16",
-						"discrète et bienveillante, semble constamment préoccupée par le bien-être des autres." },
-				{ "Julien", "16",
-						"toujours avide de connaissances, se plonge sans cesse dans les livres et explore le monde avec une soif insatiable d'apprendre." },
-				{ "Sophie", "16",
-						"avec son regard direct et son langage non équivoque, laisse transparaître une honnêteté qui ne tolère guère les faux-semblants." } };
-
-		// Créer le JTable
-		JTable table = new JTable(data, column);
-		JScrollPane scroll = new JScrollPane(table);
-		frame.add(scroll);
-		frame.pack();
-		frame.setSize(500, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setVisible(true);
-		JLabel label = new JLabel("", JLabel.CENTER);
-		frame.add(label);
-
-		// Définissez le panel
-		JPanel panel = new JPanel();
-		// Définir les boutons
-		JButton btn1 = new JButton("Antoine");
-		JButton btn2 = new JButton("Christina");
-		JButton btn3 = new JButton("Emily");
-		JButton btn4 = new JButton("Julien");
-		JButton btn5 = new JButton("Sophie");
-		// Ajouter les boutons au frame
-		panel.add(btn1);
-		panel.add(btn2);
-		panel.add(btn3);
-		panel.add(btn4);
-		panel.add(btn5);
-		// Ajouter label et panel au frame
-		frame.setLayout(new GridLayout(2, 1));
-		frame.add(label);
-		frame.add(panel);
-
-		frame.pack();
-		frame.setSize(400, 350);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setVisible(true);
-		// DGYBRIUYGIY
 		
 		
 		
