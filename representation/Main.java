@@ -1,33 +1,33 @@
 package representation;
+
 import univers.*;
 import java.util.Scanner;
 import java.util.Hashtable;
 import java.util.List;
 import univers.Factions.Faction;
 
-
 import java.io.File;
 import java.io.FileNotFoundException;
 
 public class Main {
-	
-	public static Node loadFile(String nomFichier, Scanner console, Personnage currentPerso,Hashtable<Integer,Node> dictionnaireNode) throws FileNotFoundException
-	{
+
+	public static Node loadFile(String nomFichier, Scanner console, Personnage currentPerso,
+			Hashtable<Integer, Node> dictionnaireNode) throws FileNotFoundException {
 		File fichier = new File(nomFichier);
 		Scanner lecteur = new Scanner(fichier);
 		lecteur.useDelimiter(";");
-		int i =1;
+		int i = 1;
 		System.out.println("Voici les  sauvegardes disponible :");
-		while(lecteur.hasNextLine()) {
-			System.out.printf("%d - %s%n",i++,lecteur.next());
+		while (lecteur.hasNextLine()) {
+			System.out.printf("%d - %s%n", i++, lecteur.next());
 			lecteur.nextLine();
-			
+
 		}
 		System.out.print("Laquelle choisissez vous : ");
 		int selection = console.nextInt() - 1;
 		lecteur.close();
 		lecteur = new Scanner(fichier);
-		for(int j=0; j<selection;j++)
+		for (int j = 0; j < selection; j++)
 			lecteur.nextLine();
 		lecteur.next();
 		int id = lecteur.nextInt();
@@ -38,26 +38,23 @@ public class Main {
 		int pointEr = lecteur.nextInt();
 		int pointSinc = lecteur.nextInt();
 		int pointFr = lecteur.nextInt();
-		Personnage newPerso = new Personnage(nom,pointAl,pointAud,pointEr,pointSinc,pointFr,description,null);
-		if(lecteur.hasNext())
-		{
-		int statOutil = lecteur.nextInt();
-		String nomOutil = lecteur.next();
-		String nomFaction = lecteur.next();
-		newPerso.setOutil(new Outil(nomOutil, statOutil));
-		Faction faction = Faction.getFactionFromString(nomFaction);
-		newPerso.setFaction(faction);
+		Personnage newPerso = new Personnage(nom, pointAl, pointAud, pointEr, pointSinc, pointFr, description, null);
+		if (lecteur.hasNext()) {
+			int statOutil = lecteur.nextInt();
+			String nomOutil = lecteur.next();
+			String nomFaction = lecteur.next();
+			newPerso.setOutil(new Outil(nomOutil, statOutil));
+			Faction faction = Faction.getFactionFromString(nomFaction);
+			newPerso.setFaction(faction);
 		}
 		currentPerso.copie(newPerso);
 		lecteur.close();
-		
-		return dictionnaireNode.get(id);	
-	}
-	
-	
-	
 
-	public static Node initEpreuve(Personnage currentPerso, Personnage[] persoPossibles, Scanner scanner,Hashtable <Integer,Node> dictionnaireNode) {
+		return dictionnaireNode.get(id);
+	}
+
+	public static Node initEpreuve(Personnage currentPerso, Personnage[] persoPossibles, Scanner scanner,
+			Hashtable<Integer, Node> dictionnaireNode) {
 		int i = 0;
 		DecisionNode premiereEpreuve = new DecisionNode(
 				"\"Vous savourez une gorgée du mystérieux sérum qui coule dans vos veines, imprégnant chaque coin de votre être d'une énergie inconnue. "
@@ -65,7 +62,7 @@ public class Main {
 						+ "Dans ce rêve, vous vous tenez devant cinq paniers, chaque objet révélant une essence unique. Un choix crucial s'offre à vous\n"
 						+ "1-un couteau\n" + "2-un morceau de fromage\n" + "3-un livre\n" + "4-une écharpe\n"
 						+ "5-un journal intime\n",
-				5, i +1, 0, 0, 0, 0, 0, null, scanner);
+				5, i + 1, 0, 0, 0, 0, 0, null, scanner);
 		dictionnaireNode.put(premiereEpreuve.getId(), premiereEpreuve);
 		ChoixPerso debut = new ChoixPerso(currentPerso, persoPossibles, premiereEpreuve,
 				"Choisissez un personnage:\n" + "Personnage 1:\n" + persoPossibles[0].getNom()
@@ -95,8 +92,7 @@ public class Main {
 						+ "Choix 2: Manger votre fromage en secret",
 				2, i++, 0, 0, 1, 3, 0, null, scanner);
 		dictionnaireNode.put(ChoixFromage.getId(), ChoixFromage);
-		
-		
+
 		DecisionNode ChoixLivre = new DecisionNode(
 				"Votre choix du livre, symbole de connaissance et de sagesse, vous place face à un défi inattendu. "
 						+ "Alors que vous avancez, un chien menaçant surgit, prêt à vous attaque.\n "
@@ -104,7 +100,7 @@ public class Main {
 						+ "Choix 2 : Jeter le livre sur le chien\n",
 				2, i++, 0, 0, 3, 0, 0, null, scanner);
 		dictionnaireNode.put(ChoixLivre.getId(), ChoixLivre);
-		
+
 		DecisionNode ChoixEcharpe = new DecisionNode(
 				"Votre choix de l'écharpe, symbole de chaleur et de réconfort, vous conduit à une rencontre inattendue. "
 						+ "Alors que vous marchez, un vent glacial s'abat sur la ville. Cependant, grâce à votre écharpe, vous restez au chaud.\n"
@@ -112,8 +108,7 @@ public class Main {
 						+ "Choix 1 : Lui offrirx votre echarpe\n" + "Choix 2 : Garder votre echarpe\n",
 				2, i++, 3, 0, 0, 0, 0, null, scanner);
 		dictionnaireNode.put(ChoixEcharpe.getId(), ChoixEcharpe);
-		
-		
+
 		DecisionNode ChoixJournal = new DecisionNode(
 				" Votre choix du journal intime, un moyen d'expression personnelle et d'authenticité, vous amène à une situation inhabituelle."
 						+ " Vous vous retrouvez sur une estrade, face à un grand public, où chacun lit à tour de rôle son journal intime.\n"
@@ -121,7 +116,6 @@ public class Main {
 						+ "Choix 1 : Lire fièrement votre journal\n" + "Choix 2 : Fuir la scène\n",
 				2, i++, 0, 0, 0, 0, 3, null, scanner);
 		dictionnaireNode.put(ChoixJournal.getId(), ChoixJournal);
-
 
 		DecisionNode ChoixFacS = new DecisionNode(
 
@@ -134,7 +128,6 @@ public class Main {
 
 				2, i++, 0, 0, 0, 0, 3, null, scanner);
 		dictionnaireNode.put(ChoixFacS.getId(), ChoixFacS);
-		
 
 		DecisionNode ChoixAu = new DecisionNode(
 
@@ -144,8 +137,7 @@ public class Main {
 						+ "Choix 2 : Vous choisissez de ne pas vous impliquer, considérant que cela ne vous regarde pas.\n",
 
 				2, i++, 0, 3, 0, 0, 0, null, scanner);
-		dictionnaireNode.put( ChoixAu.getId(),  ChoixAu);
-		
+		dictionnaireNode.put(ChoixAu.getId(), ChoixAu);
 
 		DecisionNode ChoixAl = new DecisionNode(
 				"Vous peinez a trouver une place, cependant, au moment ou vous vous asseyez\n"
@@ -158,9 +150,7 @@ public class Main {
 
 						+ "Choix 2 : Vous restez assis \n",
 				2, i++, 3, 0, 0, 0, 0, null, scanner);
-		dictionnaireNode.put(ChoixAl.getId(),ChoixAl);
-		
-		
+		dictionnaireNode.put(ChoixAl.getId(), ChoixAl);
 
 		DecisionNode ChoixEr = new DecisionNode(
 
@@ -182,8 +172,6 @@ public class Main {
 
 				2, i++, 0, 0, 3, 0, 0, null, scanner);
 		dictionnaireNode.put(ChoixEr.getId(), ChoixEr);
-		
-		
 
 		DecisionNode ChoixFr = new DecisionNode(
 				"Votre personnage repère un groupe de personnes rassemblées dans un coin du bus,\n"
@@ -204,130 +192,118 @@ public class Main {
 				2, i++, 0, 0, 0, 3, 0, null, scanner);
 		dictionnaireNode.put(ChoixFr.getId(), ChoixFr);
 
-
-
-	
-
-		DecisionNode ChoixFuite = new DecisionNode("Vous avez decide de fuir et n'avez pas ete a "
-				+ "la hauteur. /n "
+		DecisionNode ChoixFuite = new DecisionNode("Vous avez decide de fuir et n'avez pas ete a " + "la hauteur. /n "
 				+ "Cependant, le destin a decide de vous octroyer une seconde chance  "
 
-				+ "/n Appuyez 1 pour continuer",1,  i++, 0, 0, 0, 0, 0, null, scanner);
+				+ "/n Appuyez 1 pour continuer", 1, i++, 0, 0, 0, 0, 0, null, scanner);
 		dictionnaireNode.put(ChoixFuite.getId(), ChoixFuite);
 
-		
-		
-		//ChanceNode DernièreChance= new ChanceNode()
-		
-		DecisionNode ZoneAudacieux = new DecisionNode("Dans la Zone des Audacieux, "
-		        + "face à un mur imposant, choisissez :\n"
-		        + "\n"
-		        + "1. Surmonter le mur seul, démontrant une indépendance audacieuse, ou\n"
-		        + "2. Collaborer en formant une échelle humaine, mettant en avant la force de la coopération.\n"
-		        + "\n"
-		        + "Choisissez avec sagesse, votre décision impacte votre destinée et la perception "
-		        + "de votre courage par les évaluateurs.\n", 2, i++, 0, 3, 0, 0, 0, null, scanner);
-		dictionnaireNode.put(ZoneAudacieux.getId(),ZoneAudacieux);
+		// ChanceNode DernièreChance= new ChanceNode()
 
-		
-		
-		
+		DecisionNode ZoneAudacieux = new DecisionNode(
+				"Dans la Zone des Audacieux, " + "face à un mur imposant, choisissez :\n" + "\n"
+						+ "1. Surmonter le mur seul, démontrant une indépendance audacieuse, ou\n"
+						+ "2. Collaborer en formant une échelle humaine, mettant en avant la force de la coopération.\n"
+						+ "\n" + "Choisissez avec sagesse, votre décision impacte votre destinée et la perception "
+						+ "de votre courage par les évaluateurs.\n",
+				2, i++, 0, 3, 0, 0, 0, null, scanner);
+		dictionnaireNode.put(ZoneAudacieux.getId(), ZoneAudacieux);
+
 		DecisionNode ZoneAltruiste = new DecisionNode("Vous entrez dans la Zone des Altruistes, "
-		        + "où des choix difficiles mettent en jeu le bien-être des autres participants. "
-		        + "À un moment crucial, optez :\n"
-		        + "\n"
-		        + "1. Sacrifier une partie de vos ressources pour aider un autre, démontrant l'altruisme, ou\n"
-		        + "2. Conserver vos ressources pour maximiser vos chances personnelles, mettant à l'épreuve votre altruisme.\n"
-		        + "\n"
-		        + "Choisissez judicieusement, votre décision impacte votre destinée et la perception "
-		        + "de votre altruisme par les évaluateurs.\n", 2, i++, 3, 0, 0, 0, 0, null, scanner);
-		dictionnaireNode.put( ZoneAltruiste.getId(), ZoneAltruiste);
+				+ "où des choix difficiles mettent en jeu le bien-être des autres participants. "
+				+ "À un moment crucial, optez :\n" + "\n"
+				+ "1. Sacrifier une partie de vos ressources pour aider un autre, démontrant l'altruisme, ou\n"
+				+ "2. Conserver vos ressources pour maximiser vos chances personnelles, mettant à l'épreuve votre altruisme.\n"
+				+ "\n" + "Choisissez judicieusement, votre décision impacte votre destinée et la perception "
+				+ "de votre altruisme par les évaluateurs.\n", 2, i++, 3, 0, 0, 0, 0, null, scanner);
+		dictionnaireNode.put(ZoneAltruiste.getId(), ZoneAltruiste);
 
-		
-		
-		
 		DecisionNode ZoneErudit = new DecisionNode("Vous entrez dans la Zone des Érudits, "
-		        + "remplie d'énigmes complexes. À un moment crucial, choisissez :\n"
-		        + "\n"
-		        + "1. Résoudre une énigme individuellement, mettant en avant votre intelligence personnelle, ou\n"
-		        + "2. Collaborer pour résoudre plusieurs énigmes, démontrant la puissance de l'intelligence collective.\n"
-		        + "\n"
-		        + "Choisissez judicieusement, votre décision impacte votre destinée et la perception "
-		        + "de votre intelligence par les évaluateurs.\n", 2, i++, 0, 0, 3, 0, 0, null, scanner);
-		dictionnaireNode.put(ZoneErudit.getId(),ZoneErudit);
+				+ "remplie d'énigmes complexes. À un moment crucial, choisissez :\n" + "\n"
+				+ "1. Résoudre une énigme individuellement, mettant en avant votre intelligence personnelle, ou\n"
+				+ "2. Collaborer pour résoudre plusieurs énigmes, démontrant la puissance de l'intelligence collective.\n"
+				+ "\n" + "Choisissez judicieusement, votre décision impacte votre destinée et la perception "
+				+ "de votre intelligence par les évaluateurs.\n", 2, i++, 0, 0, 3, 0, 0, null, scanner);
+		dictionnaireNode.put(ZoneErudit.getId(), ZoneErudit);
+
+		DecisionNode ZoneFraternels = new DecisionNode("Vous entrez dans la Zone des Fraternels, "
+				+ "où des choix moraux mettent en jeu la loyauté envers vos compagnons de faction. "
+				+ "À un moment crucial, vous devez opter :\n" + "\n"
+				+ "1. Suivre aveuglément les règles établies, démontrant une loyauté inébranlable, " + "ou\n"
+				+ "2. Remettre en question une décision injuste, défendant la justice fraternelle.\n" + "\n"
+				+ "Choisissez judicieusement, votre décision impacte votre destinée et la perception "
+				+ "de votre loyauté et justice par les évaluateurs.\n", 2, i++, 0, 0, 0, 3, 0, null, scanner);
+		dictionnaireNode.put(ZoneFraternels.getId(), ZoneFraternels);
+
+		DecisionNode ZoneSincere = new DecisionNode("Vous entrez dans la Zone des Sincères, "
+				+ "remplie de miroirs déformants et d'illusions. À un moment crucial, choisissez :\n" + "\n"
+				+ "1. Suivre le chemin de la vérité, identifiant les illusions avec honnêteté, ou\n"
+				+ "2. Succomber à la tentation de la dissimulation, choisissant le mensonge pour éviter des conséquences.\n"
+				+ "\n" + "Choisissez avec sagesse, votre décision impacte votre destinée et la perception "
+				+ "de votre honnêteté par les évaluateurs.\n", 1, i++, 0, 0, 0, 0, 3, null, scanner);
+		dictionnaireNode.put(ZoneSincere.getId(), ZoneSincere);
+
+		ChanceNode epreuveChance = new ChanceNode(
+				"Vous êtes soudainement transporté dans un monde étrange où le destin semble fluctuer au gré du hasard.\n"
+						+ "Une force mystérieuse façonne votre réalité. Vous sentez que quelque chose d'inattendu va se produire...",
+				1, 0, 0, 0, 0, 0, 0, null, scanner);
+		dictionnaireNode.put(epreuveChance.getId(), epreuveChance);
 
 		
 		
-		DecisionNode ZoneFraternels = new DecisionNode("Vous entrez dans la Zone des Fraternels, "
-		        + "où des choix moraux mettent en jeu la loyauté envers vos compagnons de faction. "
-		        + "À un moment crucial, vous devez opter :\n"
-		        + "\n"
-		        + "1. Suivre aveuglément les règles établies, démontrant une loyauté inébranlable, "
-		        + "ou\n"
-		        + "2. Remettre en question une décision injuste, défendant la justice fraternelle.\n"
-		        + "\n"
-		        + "Choisissez judicieusement, votre décision impacte votre destinée et la perception "
-		        + "de votre loyauté et justice par les évaluateurs.\n", 2, i++, 0, 0, 0, 3, 0, null, scanner);
-		dictionnaireNode.put(ZoneFraternels.getId(),ZoneFraternels);
+		Outil outil=new Outil();
 		
 		
-		
-		
-		DecisionNode ZoneSincere = new DecisionNode("Vous entrez dans la Zone des Sincères, "
-		        + "remplie de miroirs déformants et d'illusions. À un moment crucial, choisissez :\n"
-		        + "\n"
-		        + "1. Suivre le chemin de la vérité, identifiant les illusions avec honnêteté, ou\n"
-		        + "2. Succomber à la tentation de la dissimulation, choisissant le mensonge pour éviter des conséquences.\n"
-		        + "\n"
-		        + "Choisissez avec sagesse, votre décision impacte votre destinée et la perception "
-		        + "de votre honnêteté par les évaluateurs.\n", 1, i++, 0, 0, 0, 0, 3, null, scanner);
-		dictionnaireNode.put(ZoneSincere.getId(),ZoneSincere);
-		
-		
-		
-		
-		ChanceNode epreuveChance = new ChanceNode(
-                "Vous êtes soudainement transporté dans un monde étrange où le destin semble fluctuer au gré du hasard.\n"
-                        + "Une force mystérieuse façonne votre réalité. Vous sentez que quelque chose d'inattendu va se produire...",
-                2, 0, 0, 0, 0, 0, 0, null, scanner);
-		dictionnaireNode.put(epreuveChance .getId(), epreuveChance );
-		
-		
-		
-		TerminalNode Divergent = new TerminalNode (
-				"Tes choix audacieux et divergents ont tracé un chemin unique, mais dans le monde implacable de Divergente, la divergence a un prix. Les dirigeants, "
-				+ "intolérants envers la déviation, ont scellé ton destin. Ta partie s'achève ici. "
-				+ "Prépare-toi à affronter les conséquences de ta divergence.",i++);
-		dictionnaireNode.put(Divergent.getId(), Divergent);
-		
-		
-		
-		
+		DecisionNode FactionAl= new DecisionNode("", 2, i+1, 3, 0, 0, 0, 0, outil , scanner );
+		dictionnaireNode.put(FactionAl.getId(), FactionAl);
 	
+		DecisionNode FactionAud= new DecisionNode("", 2, i+2, 0, 3, 0, 0, 0, outil , scanner );
+		dictionnaireNode.put(FactionAud.getId(), FactionAud);		
+		
+		DecisionNode FactionEr= new DecisionNode("", 2, i+3, 0, 0, 3, 0, 0, outil , scanner );
+		dictionnaireNode.put(FactionEr.getId(), FactionEr);		
+		
+		DecisionNode FactionFr= new DecisionNode("", 2, i+4, 0, 0, 0, 3, 0, outil , scanner );
+		dictionnaireNode.put(FactionFr.getId(), FactionFr);		
+		
+		DecisionNode FactionSinc= new DecisionNode("", 2, i+5, 0, 0, 0, 0, 3, outil , scanner );
+		dictionnaireNode.put(FactionSinc.getId(), FactionSinc);		
+		TerminalNode Divergent = new TerminalNode(
+				"Tes choix audacieux et divergents ont tracé un chemin unique, mais dans le monde implacable de Divergente, la divergence a un prix. Les dirigeants, "
+						+ "intolérants envers la déviation, ont scellé ton destin. Ta partie s'achève ici. "
+						+ "Prépare-toi à affronter les conséquences de ta divergence.",
+				i+6);
+		dictionnaireNode.put(Divergent.getId(), Divergent);
+				
+				
+		ChoixFaction choixFaction= new ChoixFaction(currentPerso, "", FactionAl, FactionAud,
+				FactionEr, FactionFr, FactionSinc, Divergent,6,  i++, 0,0,0,0,0, outil );
+		dictionnaireNode.put(choixFaction.getId(), choixFaction);
+		
+		i+=6; //A VERIFIER -----------------------
+		
 		
 		premiereEpreuve.setOptions(List.of(ChoixCouteau, ChoixFromage, ChoixLivre, ChoixEcharpe, ChoixJournal));
-		
+
 		ChoixLivre.setOptions(List.of(ChoixEr, ChoixCouteau));
-		ChoixCouteau.setOptions(List.of(ChoixAu,ChoixFromage));
+		ChoixCouteau.setOptions(List.of(ChoixAu, ChoixFromage));
 		ChoixFromage.setOptions(List.of(ChoixFr, ChoixEcharpe));
 		ChoixEcharpe.setOptions(List.of(ChoixAl, ChoixJournal));
-		ChoixJournal.setOptions(List.of(ChoixFacS, ChoixFuite));		
-		
-		ChoixAu.setOptions(List.of(ZoneAudacieux,ChoixLivre));
-		ChoixAl.setOptions(List.of(ZoneAltruiste,ChoixCouteau));
-		ChoixEr.setOptions(List.of(ZoneErudit,ChoixEcharpe));
-		ChoixFr.setOptions(List.of(ZoneFraternels,ChoixJournal));
+		ChoixJournal.setOptions(List.of(ChoixFacS, ChoixFuite));
+
+		ChoixAu.setOptions(List.of(ZoneAudacieux, ChoixLivre));
+		ChoixAl.setOptions(List.of(ZoneAltruiste, ChoixCouteau));
+		ChoixEr.setOptions(List.of(ZoneErudit, ChoixEcharpe));
+		ChoixFr.setOptions(List.of(ZoneFraternels, ChoixJournal));
 		ChoixFacS.setOptions(List.of(ZoneSincere, ChoixAu));
-		
-		
-		ZoneAudacieux.setOptions(List.of(epreuveChance,ChoixFromage));
-		ZoneAltruiste.setOptions(List.of(epreuveChance,ChoixCouteau));
-		ZoneErudit.setOptions(List.of(epreuveChance,ChoixFromage));
-		ZoneFraternels.setOptions(List.of(ZoneFraternels,epreuveChance));
-		ZoneSincere.setOptions(List.of(epreuveChance,epreuveChance));
-		 
-		 
-		 
+
+		ZoneAudacieux.setOptions(List.of(epreuveChance, ChoixFromage));
+		ZoneAltruiste.setOptions(List.of(epreuveChance, ChoixCouteau));
+		ZoneErudit.setOptions(List.of(epreuveChance, ChoixFromage));
+		ZoneFraternels.setOptions(List.of(ZoneFraternels, epreuveChance));
+		ZoneSincere.setOptions(List.of(epreuveChance, epreuveChance));
+		epreuveChance.setOptions(List.of(choixFaction));
+		choixFaction.setOptions(List.of(FactionAl, FactionAud, FactionEr, FactionFr, FactionSinc, Divergent));
 		return debut;
 
 	}
@@ -350,7 +326,7 @@ public class Main {
 				outil1);
 		personnages[1] = new Personnage("Christina", 8, 7, 5, 4, 6,
 				" Christina, au premier abord, semble être une personne qui apprécie l'exploration et l'expérience de nouvelles choses. \n"
-				+ "Sa curiosité la pousse à chercher des défis et des situations qui mettent ses compétences à l'épreuve. \n"
+						+ "Sa curiosité la pousse à chercher des défis et des situations qui mettent ses compétences à l'épreuve. \n"
 						+ "Elle ne craint pas l'inconnu et est souvent vue en train d'explorer des territoires inexplorés.\n",
 				outil1);
 
@@ -372,20 +348,11 @@ public class Main {
 						+ "Les nuances subtiles de ses expressions faciales révèlent une transparence émotionnelle, soulignant son engagement envers l'authenticité.\n"
 						+ " Un style vestimentaire simple mais élégant suggère qu'elle accorde de l'importance à l'expression véritable de soi.\n",
 				outil1);
-		
-		Hashtable<Integer,Node> dictionnaireNode=new Hashtable<Integer,Node>();
-		
-		
-		
-		
-		
-		
-		
-		
-		
+
+		Hashtable<Integer, Node> dictionnaireNode = new Hashtable<Integer, Node>();
+
 		Scanner console = new Scanner(System.in);
-		
-		
+
 		Node currentNode = initEpreuve(currentPerso, personnages, console, dictionnaireNode);
 
 		while (!(currentNode instanceof TerminalNode)) {

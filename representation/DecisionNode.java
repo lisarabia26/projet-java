@@ -6,6 +6,7 @@ import univers.Outil;
 
 public class DecisionNode extends InnerNode {
 	Scanner scanner;
+	Outil outil; 
 
 	public DecisionNode(String description,int nbreOptions, int id, int pointAl, int pointAud, int pointEr, int pointFr, int pointSinc,Outil outil, Scanner scanner ) {
 		super(description, nbreOptions, id, pointAl, pointAud, pointEr, pointFr,  pointSinc, outil);

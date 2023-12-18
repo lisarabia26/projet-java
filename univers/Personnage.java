@@ -1,5 +1,4 @@
 package univers;
-
 import univers.Factions.Faction;
 
 public class Personnage {
@@ -123,7 +122,4 @@ public class Personnage {
 		
 	}
 
-
-    
-    
 }

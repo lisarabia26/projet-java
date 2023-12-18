@@ -4,6 +4,12 @@ public class Outil {
     protected String nom;
     protected String description;
     protected int statistic;
+    
+    public Outil() {
+    	this.nom="";
+    	this.statistic=0;
+    	
+    }
 
     public Outil(String nom, int statistic) {
         this.nom = nom;
@@ -91,7 +97,8 @@ public class Outil {
             case ÉRUDIT:
                 return new Outil(Outils.LIVRE.getNom(), Outils.LIVRE.getStat());
             default:
-                return null;
+                throw new IllegalArgumentException("Faction inconnue : " + faction.getNom());
+                //soit je laisse return null 
         }
     }
 
