@@ -36,5 +36,4 @@ public class DecisionNode extends InnerNode {
 
 
 }
-	//if(choix >= this.options.length || choix <0)
-	//return this.options[choix];
+	
