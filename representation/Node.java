@@ -49,15 +49,15 @@ public abstract class Node {
 	}
 	
 	
-	public void save(Personnage p) throws IOException {
+	public void save(Personnage p, String nomFichier, String nomSauvegarde) throws IOException {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");  
 		LocalDateTime now = LocalDateTime.now();  
 		System.out.println(dtf.format(now));
-		String info= String.format("%s;%d;%s;%s;%d;%d;%d;%d;%d;%s;%s",dtf.format(now),this.id,p.getNom(),p.getDescription(), p.getPointAl(),p.getPointAud(), p.getPointEr(),p.getPointSinc(), p.getPointFr());
+		String info= String.format("%s;%s;%d;%s;%s;%d;%d;%d;%d;%d",nomSauvegarde,dtf.format(now),this.id,p.getNom(),p.getDescription().replace('\n', '|'), p.getPointAl(),p.getPointAud(), p.getPointEr(),p.getPointSinc(), p.getPointFr());
 		if(p.outil != null) 
 			info += String.format(";%d;%s;%s", p.outil.getStat(), p.outil.getNom(),p.getFaction());
 		
-		FileWriter fileWriter = new FileWriter("./sauvegarde.csv",true);
+		FileWriter fileWriter = new FileWriter(nomFichier,true);
 		 PrintWriter printWriter = new PrintWriter(fileWriter);
 		 printWriter.println(info);
 		 printWriter.close();

@@ -17,7 +17,6 @@ public class ChanceNode extends InnerNode {
 
     public Node chooseNext() {
         int choix = new Random().nextInt(this.options.size());
-        System.out.println(this.description);
         return this.options.get(choix);
     }
 
@@ -51,7 +50,6 @@ public class ChanceNode extends InnerNode {
                     pointSincGagne += pointChance;
                     break;
             }
-            init(joueur);
         }
     }
 }

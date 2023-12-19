@@ -23,6 +23,16 @@ public class ChoixFaction extends InnerNode {
 		this.currentPerso = currentPerso;
 
 	}
+
+	public void setFactions(InnerNode FactionAl, InnerNode FactionAud, InnerNode FactionEr, InnerNode FactionFr,
+			InnerNode FactionSinc, TerminalNode Divergent) {
+		this.FactionAl = FactionAl;
+		this.FactionAud = FactionAud;
+		this.FactionEr = FactionEr;
+		this.FactionFr = FactionFr;
+		this.FactionSinc = FactionSinc;
+		this.Divergent = Divergent;
+	}
 	
 
 
@@ -47,31 +57,34 @@ public class ChoixFaction extends InnerNode {
 			if (max==PtAl) {
 				outil = Outil.setOutilFromFaction(Faction.ALTRUISTE);
 				currentPerso.setOutil(outil);
-				return Faction.ALTRUISTE; 
+				currentPerso.setFaction(Faction.ALTRUISTE); 
 			}
-			if (max==PtAud) {
+			else if (max==PtAud) {
 				outil= Outil.setOutilFromFaction(Faction.AUDACIEUX);
 				currentPerso.setOutil(outil);
-				return Faction.AUDACIEUX;
+				currentPerso.setFaction(Faction.AUDACIEUX);
 			}
 			
-			if (PtEr==max) {
+			else if (PtEr==max) {
 				outil= Outil.setOutilFromFaction(Faction.ÉRUDIT);
 				currentPerso.setOutil(outil);
-				return Faction.ÉRUDIT;
+				currentPerso.setFaction(Faction.ÉRUDIT);
 			}
-			if (PtFr==max) {
+			else if (PtFr==max) {
 				outil= Outil.setOutilFromFaction(Faction.FRATERNEL);
 				currentPerso.setOutil(outil);
-				return Faction.FRATERNEL;
+				currentPerso.setFaction(Faction.FRATERNEL);
 			}
-			if (PtSinc==max) {
+			else if (PtSinc==max) {
 				outil= Outil.setOutilFromFaction(Faction.SINCÈRE);
 				currentPerso.setOutil(outil);
-				return Faction.SINCÈRE;
+				currentPerso.setFaction(Faction.SINCÈRE);
+			}
+			else{
+				currentperso.setFaction(Faction.SANS_FACTION);
 			}
 			
-			return Faction.SANS_FACTION;
+			return currentperso.getFaction();
 	}
 	 @Override
 	  
