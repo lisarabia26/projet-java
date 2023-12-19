@@ -269,21 +269,21 @@ public class Main {
 		dictionnaireNode.put(FactionAud.getId(), FactionAud);		
 		
 		DecisionNode FactionEr= new DecisionNode(" Bienvenue parmi les Érudits, les gardiens du savoir et de la sagesse."
-				+ "Vous etes devant trois portes, chacune avec une énigme écrite dessus. "
+				+ "Vous etes devant trois portes, chacune avec une affirmation écrite dessus. "
 				+ "Seule la réponse correcte le mènera plus loin.\n"
 				+ "Énigme : \"Laquelle est vraie parmi ces affirmations ?\n"
-				+ " A) Les rivières coulent en arrière.\n"
-				+ " B) Les oiseaux volent toujours en ligne droite.\n "
-				+ " C) La vérité est cachée derrière une porte.\"", 3, i+3, 0, 0, 3, 0, 0, outil , scanner );
+				+ " 1) Les rivières coulent en arrière.\n"
+				+ " 2) Les oiseaux volent toujours en ligne droite.\n "
+				+ " 3) La vérité est cachée derrière une porte.", 3, i+3, 0, 0, 3, 0, 0, outil , scanner );
 		dictionnaireNode.put(FactionEr.getId(), FactionEr);		
 		
 		DecisionNode FactionFr= new DecisionNode("Bienvenue parmi les Fraternels, où la loyauté et la camaraderie sont nos piliers. \n"
 				+ "En montrant Jean, Julie dit : \"il est le fils de la fille unique de mon père\".\n"
 				+ "Quel est le lien entre Jean et Julie?\n"
 				+ "1. Jean est le frere de Julie \n "
-				+ "2.Jean est le mari de Julie \n "
+				+ "2. Jean est le mari de Julie \n "
 				+ "3. Jean est le fils de Julie \n"
-				+ "4.Jean est le pere de Julie \n "
+				+ "4. Jean est le pere de Julie \n "
 			
 				, 4, i+4, 0, 0, 0, 3, 0, outil , scanner );
 		dictionnaireNode.put(FactionFr.getId(), FactionFr);		
@@ -315,16 +315,17 @@ public class Main {
 		i+=6; //A VERIFIER -----------------------
 		
 		
-		DecisionNode Ep2Fr= new DecisionNode("V", 2, i+4, 0, 0, 0, 3, 0, outil , scanner );
+		DecisionNode Ep2Fr= new DecisionNode("V", 2, i++, 0, 0, 0, 3, 0, outil , scanner );
 		dictionnaireNode.put( Ep2Fr.getId(), Ep2Fr);	
 		
 		
-		DecisionNode Ep2S= new DecisionNode("V", 2, i+4, 0, 0, 0, 0, 3, outil , scanner );
+		DecisionNode Ep2S= new DecisionNode("V", 2, i++, 0, 0, 0, 0, 3, outil , scanner );
 		dictionnaireNode.put( Ep2S.getId(), Ep2S);	
 		
 		
 		
-		DecisionNode Ep2R= new DecisionNode("Bienvenue dans le défi du Mastermind Carré ! Dévoilez vos talents stratégiques en tentant de décrypter la combinaison secrète de chiffres, a"
+		DecisionNode Ep2R= new DecisionNode("Bienvenue dans le défi du Mastermind Carré ! Dévoilez vos talents stratégiques"
+				+ " en tentant de décrypter la combinaison secrète de chiffres, a"
 				+ "vec quatre chiffres par ligne sur quatre lignes. "
 				+ "Pouvez-vous percer le code ?\n"
 				+ "|2|3|6|7|   0BP-2MP \n"
@@ -333,13 +334,13 @@ public class Main {
 				+ "1. 9132 \n"
 				+ "2. 7632 \n"
 				+ "3. 7612 \n"
-				+ "4. 1329  \n", 2, i+4, 0, 0, 3, 0, 0, outil , scanner );
+				+ "4. 1329  \n", 2, i++, 0, 0, 3, 0, 0, outil , scanner );
 		dictionnaireNode.put( Ep2R.getId(), Ep2R);	
 		
-		DecisionNode Ep2Aud=new DecisionNode("V", 2, i+4, 0, 0, 3, 0, 0, outil , scanner );
+		DecisionNode Ep2Aud=new DecisionNode("V", 2, i++, 0, 0, 3, 0, 0, outil , scanner );
 		dictionnaireNode.put( Ep2Aud.getId(), Ep2Aud);	
 		
-		DecisionNode Ep3R=new DecisionNode("V", 2, i+4, 0, 0, 3, 0, 0, outil , scanner );
+		DecisionNode Ep3R=new DecisionNode("V", 2, i++, 0, 0, 3, 0, 0, outil , scanner );
 		dictionnaireNode.put(  Ep3R.getId(),  Ep3R);	
 		
 		TerminalNode fin= new TerminalNode("",i++);
