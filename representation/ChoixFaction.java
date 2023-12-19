@@ -6,6 +6,10 @@ import univers.Outil;
 import univers.Personnage;
 import univers.Factions.Faction;
 
+/**
+ * La classe ChoixFaction représente un nœud de décision où le joueur est attribué à une faction en fonction de ses
+ * points dans chaque dimension de personnalité. La faction choisie affecte le déroulement du scénario.
+ */
 public class ChoixFaction extends InnerNode {
 	Personnage currentPerso;
 	InnerNode FactionAl; 
@@ -16,6 +20,26 @@ public class ChoixFaction extends InnerNode {
 	TerminalNode Divergent;
 	Outil outil;
 
+	/**
+     * Constructeur de la classe ChoixFaction.
+     *
+     * @param currentPerso   Le personnage actuel du joueur.
+     * @param description    La description du nœud de choix de faction.
+     * @param FactionAl      Le nœud associé à la faction Altruiste.
+     * @param FactionAud     Le nœud associé à la faction Audacieux.
+     * @param FactionEr      Le nœud associé à la faction Érudit.
+     * @param FactionFr      Le nœud associé à la faction Fraternel.
+     * @param FactionSinc    Le nœud associé à la faction Sincère.
+     * @param Divergent      Le nœud associé à la faction Divergent.
+     * @param nbreOptions    Le nombre d'options disponibles (non utilisé dans ce contexte).
+     * @param id             L'identifiant unique du nœud.
+     * @param pointAl        Les points d'altruisme gagnés en choisissant ce nœud.
+     * @param pointAud       Les points d'audace gagnés en choisissant ce nœud.
+     * @param pointEr        Les points d'érudition gagnés en choisissant ce nœud.
+     * @param pointFr        Les points de fraternité gagnés en choisissant ce nœud.
+     * @param pointSinc      Les points de sincérité gagnés en choisissant ce nœud.
+     * @param outil          L'outil attribué en choisissant ce nœud.
+     */
 	public ChoixFaction(Personnage currentPerso, String description,InnerNode FactionAl,InnerNode FactionAud,
 			InnerNode FactionEr,InnerNode FactionFr, InnerNode FactionSinc, TerminalNode Divergent,
 			int nbreOptions, int id, int pointAl, int pointAud, int pointEr, int pointFr, int pointSinc, Outil outil) {
@@ -24,8 +48,12 @@ public class ChoixFaction extends InnerNode {
 
 	}
 	
-
-
+	/**
+     * Choix de la faction en fonction des points de personnalité du joueur.
+     *
+     * @param currentperso Le personnage actuel du joueur.
+     * @return La faction choisie en fonction des points de personnalité du joueur.
+     */
 	public Faction ChoixFactionM(Personnage currentperso) {
 			int PtAl=currentPerso.getPointAl();
 			int PtAud=currentPerso.getPointAud();
@@ -73,8 +101,13 @@ public class ChoixFaction extends InnerNode {
 			
 			return Faction.SANS_FACTION;
 	}
+	
+	/**
+     * Choix du prochain nœud en fonction de la faction choisie.
+     *
+     * @return Le nœud associé à la faction choisie.
+     */
 	 @Override
-	  
 	  public Node chooseNext() {
 		 Faction chosenFaction = ChoixFactionM(currentPerso);
 		 switch(chosenFaction) {
