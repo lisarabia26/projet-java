@@ -254,52 +254,20 @@ public class Main {
 		Outil outil=new Outil();
 		
 		
-		DecisionNode FactionAl= new DecisionNode("Bienvenue parmi les Altruistes, là où la solidarité et "
-				+ "l'empathie sont nos valeurs principales. "
-				, 2, i+1, 3, 0, 0, 0, 0, outil , scanner );
+		DecisionNode FactionAl= new DecisionNode("", 2, i+1, 3, 0, 0, 0, 0, outil , scanner );
 		dictionnaireNode.put(FactionAl.getId(), FactionAl);
 	
-		DecisionNode FactionAud= new DecisionNode("Bienvenue parmi les Audacieux, l'audace et le courage sont notre force. \n"
-				+ "Voici votre premiere epreuve: \n"
-				+ "Devant trois roues dans cet ordre: A, B et C \n"
-				+ "Si  Si la roue A tourne dans le sens anti-horaire, dans quel sens tourne la roue C ? \n"
-				+ "1. Horaire ]n"
-				+ "2. Antihoraire"
-				, 2, i+2, 0, 3, 0, 0, 0, outil , scanner );
+		DecisionNode FactionAud= new DecisionNode("", 2, i+2, 0, 3, 0, 0, 0, outil , scanner );
 		dictionnaireNode.put(FactionAud.getId(), FactionAud);		
 		
-		DecisionNode FactionEr= new DecisionNode(" Bienvenue parmi les Érudits, les gardiens du savoir et de la sagesse."
-				+ "Vous etes devant trois portes, chacune avec une affirmation écrite dessus. "
-				+ "Seule la réponse correcte le mènera plus loin.\n"
-				+ "Énigme : \"Laquelle est vraie parmi ces affirmations ?\n"
-				+ " 1) Les rivières coulent en arrière.\n"
-				+ " 2) Les oiseaux volent toujours en ligne droite.\n "
-				+ " 3) La vérité est cachée derrière une porte.", 3, i+3, 0, 0, 3, 0, 0, outil , scanner );
+		DecisionNode FactionEr= new DecisionNode("", 2, i+3, 0, 0, 3, 0, 0, outil , scanner );
 		dictionnaireNode.put(FactionEr.getId(), FactionEr);		
 		
-		DecisionNode FactionFr= new DecisionNode("Bienvenue parmi les Fraternels, où la loyauté et la camaraderie sont nos piliers. \n"
-				+ "En montrant Jean, Julie dit : \"il est le fils de la fille unique de mon père\".\n"
-				+ "Quel est le lien entre Jean et Julie?\n"
-				+ "1. Jean est le frere de Julie \n "
-				+ "2. Jean est le mari de Julie \n "
-				+ "3. Jean est le fils de Julie \n"
-				+ "4. Jean est le pere de Julie \n "
-			
-				, 4, i+4, 0, 0, 0, 3, 0, outil , scanner );
+		DecisionNode FactionFr= new DecisionNode("", 2, i+4, 0, 0, 0, 3, 0, outil , scanner );
 		dictionnaireNode.put(FactionFr.getId(), FactionFr);		
 		
-		DecisionNode FactionSinc= new DecisionNode("Bienvenue parmi les Sincères, "
-				+ "où l'authenticité et la vérité sont nos guides.\n"
-				+ "Devant vous se deroule une partie d'undercover entre 4 personnes,"
-				+ "parmi eux, 1 undercover et 3 civils. \n"
-				+ "P1 : Abeille \n"
-				+ "P2 : Toux \n"
-				+ "P3 : Pancakes \n"
-				+ "P4 : Erable \n"
-				+ "Qui est l'undercover ?", 4, i+5, 0, 0, 0, 0, 3, outil , scanner );
+		DecisionNode FactionSinc= new DecisionNode("", 2, i+5, 0, 0, 0, 0, 3, outil , scanner );
 		dictionnaireNode.put(FactionSinc.getId(), FactionSinc);		
-		
-		
 		TerminalNode Divergent = new TerminalNode(
 				"Tes choix audacieux et divergents ont tracé un chemin unique, mais dans le monde implacable de Divergente, la divergence a un prix. Les dirigeants, "
 						+ "intolérants envers la déviation, ont scellé ton destin. Ta partie s'achève ici. "
@@ -313,39 +281,6 @@ public class Main {
 		dictionnaireNode.put(choixFaction.getId(), choixFaction);
 		
 		i+=6; //A VERIFIER -----------------------
-		
-		
-		DecisionNode Ep2Fr= new DecisionNode("V", 2, i++, 0, 0, 0, 3, 0, outil , scanner );
-		dictionnaireNode.put( Ep2Fr.getId(), Ep2Fr);	
-		
-		
-		DecisionNode Ep2S= new DecisionNode("V", 2, i++, 0, 0, 0, 0, 3, outil , scanner );
-		dictionnaireNode.put( Ep2S.getId(), Ep2S);	
-		
-		
-		
-		DecisionNode Ep2R= new DecisionNode("Bienvenue dans le défi du Mastermind Carré ! Dévoilez vos talents stratégiques"
-				+ " en tentant de décrypter la combinaison secrète de chiffres, a"
-				+ "vec quatre chiffres par ligne sur quatre lignes. "
-				+ "Pouvez-vous percer le code ?\n"
-				+ "|2|3|6|7|   0BP-2MP \n"
-				+ "|3|2|1|9|   0BP-4MP \n"
-				+ "|1|9|2|3|   0BP-4MP \n"
-				+ "1. 9132 \n"
-				+ "2. 7632 \n"
-				+ "3. 7612 \n"
-				+ "4. 1329  \n", 2, i++, 0, 0, 3, 0, 0, outil , scanner );
-		dictionnaireNode.put( Ep2R.getId(), Ep2R);	
-		
-		DecisionNode Ep2Aud=new DecisionNode("V", 2, i++, 0, 0, 3, 0, 0, outil , scanner );
-		dictionnaireNode.put( Ep2Aud.getId(), Ep2Aud);	
-		
-		DecisionNode Ep3R=new DecisionNode("V", 2, i++, 0, 0, 3, 0, 0, outil , scanner );
-		dictionnaireNode.put(  Ep3R.getId(),  Ep3R);	
-		
-		TerminalNode fin= new TerminalNode("",i++);
-		dictionnaireNode.put(fin.getId(),fin);
-		
 		
 		
 		premiereEpreuve.setOptions(List.of(ChoixCouteau, ChoixFromage, ChoixLivre, ChoixEcharpe, ChoixJournal));
@@ -369,12 +304,6 @@ public class Main {
 		ZoneSincere.setOptions(List.of(epreuveChance, epreuveChance));
 		epreuveChance.setOptions(List.of(choixFaction));
 		choixFaction.setOptions(List.of(FactionAl, FactionAud, FactionEr, FactionFr, FactionSinc, Divergent));
-		FactionSinc.setOptions(List.of(Ep2S,fin,fin,fin,fin));
-		FactionEr.setOptions(List.of(Ep2R,fin,fin,fin,fin));
-		FactionFr.setOptions(List.of(fin,fin,Ep2Fr,fin));
-		FactionAud.setOptions(List.of(fin,Ep2Aud));
-		Ep2R.setOptions(List.of(Ep3R,fin,fin,fin,fin));
-		
 		return debut;
 
 	}
