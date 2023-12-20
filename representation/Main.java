@@ -1,6 +1,6 @@
 package representation;
 
-import univers.*;
+
 import java.util.Scanner;
 
 public class Main {

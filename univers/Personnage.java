@@ -1,5 +1,6 @@
 package univers;
 import univers.Factions.Faction;
+import univers.Grade.Grades;
 
 /**
  * La classe Personnage représente un personnage du jeu avec des caractéristiques telles que le nom,
@@ -270,5 +271,44 @@ public class Personnage {
 		this.outil=outil;
 		
 	}
+	public static Grades assignGrade(Personnage currentPerso) {
+		int factionPoints=0;
+		Faction Factionp=currentPerso.getFaction() ;
+		switch(Factionp){
+		 case ALTRUISTE:
+			 factionPoints+= currentPerso.getPointAl();
+			 break;
+		 case AUDACIEUX:
+			 factionPoints+= currentPerso.getPointAud();
+			 break;
+		 case ÉRUDIT:
+			 factionPoints+= currentPerso.getPointEr();
+			 break;
+		 case FRATERNEL:
+			 factionPoints+= currentPerso.getPointFr();
+			 break;
+		 case SINCÈRE: 
+			 factionPoints+= currentPerso.getPointSinc();
+			 break;
+		 default:
+			 factionPoints+=0;
+		 }
+		
+		factionPoints +=currentPerso.getOutil().getStat();
+				
+		
+		if (factionPoints < 10) {
+			return Grades.NOVICE;
+		} else if (factionPoints < 20) {
+			return Grades.APPRENTICE;
+		} else if (factionPoints < 30) {
+			return Grades.JOURNEYMAN;
+		} else if (factionPoints < 40) {
+			return Grades.EXPERT;
+		} else {
+			return Grades.MASTER;
+		}
+	}
+
 
 }

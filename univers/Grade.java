@@ -45,18 +45,5 @@ public class Grade {
      * @return Le grade correspondant.
      */
 	
-	public static Grades assignGrade(int factionPoints) {
-		if (factionPoints < 10) {
-			return Grades.NOVICE;
-		} else if (factionPoints < 20) {
-			return Grades.APPRENTICE;
-		} else if (factionPoints < 30) {
-			return Grades.JOURNEYMAN;
-		} else if (factionPoints < 40) {
-			return Grades.EXPERT;
-		} else {
-			return Grades.MASTER;
-		}
-	}
 
 }
