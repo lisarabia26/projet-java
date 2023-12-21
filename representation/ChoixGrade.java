@@ -21,7 +21,14 @@ public class ChoixGrade extends InnerNode{
 		this.currentPerso = currentPerso;
 	}
 	
-	
+	public void setGrade(TerminalNode fin,TerminalNode Novice,TerminalNode Apprentice ,TerminalNode Journeyman ,TerminalNode Expert,TerminalNode Master ) {
+		this.fin = fin;
+		this.Novice= Novice;
+		this.Apprentice = Apprentice;
+		this.Journeyman = Journeyman;
+		this. Expert =  Expert;
+		this.Master = Master;
+	}
 
 	public static Grades assignGrade(Personnage currentPerso) {
 		int factionPoints=0;
@@ -53,9 +60,9 @@ public class ChoixGrade extends InnerNode{
 			return Grades.NOVICE;
 		} else if (factionPoints < 20) {
 			return Grades.APPRENTICE;
-		} else if (factionPoints < 30) {
+		} else if (factionPoints < 25) {
 			return Grades.JOURNEYMAN;
-		} else if (factionPoints < 40) {
+		} else if (factionPoints < 30) {
 			return Grades.EXPERT;
 		} else {
 			return Grades.MASTER;

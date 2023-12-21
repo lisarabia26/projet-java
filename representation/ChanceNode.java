@@ -39,6 +39,7 @@ public class ChanceNode extends InnerNode {
      * @return Le nœud suivant en fonction de l'événement aléatoire.
      */
     public Node chooseNext() {
+    	System.out.println(this.description);
         int choix = new Random().nextInt(this.options.size());
         return this.options.get(choix);
     }
@@ -61,7 +62,7 @@ public class ChanceNode extends InnerNode {
      */
     private void RandomPT(Outil outil, Personnage joueur) {
         int pointChance = new Random().nextInt(15);
-
+      
         if (outil != null) {
         	outil.setStat(outil.getStat() + pointChance);
         } else {

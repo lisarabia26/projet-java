@@ -122,8 +122,8 @@ public class Game {
 				"\"Vous savourez une gorgée du mystérieux sérum qui coule dans vos veines, imprégnant chaque coin de votre être d'une énergie inconnue. "
 						+ "À peine le liquide touche-t-il votre palais que votre conscience s'embrouille, vous plongeant dans un rêve éthéré.\n"
 						+ "Dans ce rêve, vous vous tenez devant cinq paniers, chaque objet révélant une essence unique. Un choix crucial s'offre à vous\n"
-						+ "1-un couteau\n" + "2-un morceau de fromage\n" + "3-un livre\n" + "4-une écharpe\n"
-						+ "5-un journal intime\n",
+						+ "1. un couteau\n" + "2. un morceau de fromage\n" + "3. un livre\n" + "4. une écharpe\n"
+						+ "5. un journal intime\n",
 				5, i + 1, 0, 0, 0, 0, 0, null, scanner);
 		dictionnaireNode.put(premiereEpreuve.getId(), premiereEpreuve);
 		ChoixPerso debut = new ChoixPerso(currentPerso, persoPossibles, premiereEpreuve,
@@ -149,7 +149,7 @@ public class Game {
 						+ "Alors que vous errez, vous retrouvez d'anciens camarades, mais la scène qui se dévoile est loin d'être réjouissante. "
 						+ "Plusieurs d'entre eux sont blessés, nécessitant une aide immédiate.\n"
 						+ "Au détour de votre chemin, vous découvrez un groupe de connaissances qui détiennent des médicaments salvateurs."
-						+ " Cependant, une réalité inattendue se présente : la longue marche vous a creusé l'appétit."
+						+ "Cependant, une réalité inattendue se présente : la longue marche vous a creusé l'appétit."
 						+ "1. Troquer votre fromage contre des médicaments"
 						+ "2. Manger votre fromage en secret",
 				2, i++, 0, 0, 1, 3, 0, null, scanner);
@@ -246,8 +246,8 @@ public class Game {
 		// ChanceNode DernièreChance= new ChanceNode()
 
 		DecisionNode ZoneAudacieux = new DecisionNode(
-				"Dans la Zone des Audacieux, " + "face à un mur imposant, deux potions s'offrent a vous, choisissez avec sagesse, votre décision impacte votre destinée et la perception \"\n"
-						+ "						de votre courage par les évaluateurs :" + "\n"
+				"Dans la Zone des Audacieux, " + "face à un mur imposant, deux potions s'offrent a vous, choisissez avec sagesse, votre décision impacte votre destinée et la perception \n"
+						+ "						de votre courage par les évaluateurs :\n" 
 						+ "1. Surmonter le mur seul, démontrant une indépendance audacieuse, ou\n"
 						+ "2. Collaborer en formant une échelle humaine, mettant en avant la force de la coopération.\n"
 						+ "\n" ,
@@ -267,7 +267,7 @@ public class Game {
 				+ "remplie d'énigmes complexes. À un moment crucial, choisissez :\n" + "\n"
 				+ "1. Résoudre une énigme individuellement, mettant en avant votre intelligence personnelle, ou\n"
 				+ "2. Collaborer pour résoudre plusieurs énigmes, démontrant la puissance de l'intelligence collective.\n"
-				+ "\n" + "Choisissez judicieusement, votre décision impacte votre destinée et la perception "
+				+ "Choisissez judicieusement, votre décision impacte votre destinée et la perception "
 				+ "de votre intelligence par les évaluateurs.\n", 2, i++, 0, 0, 3, 0, 0, null, scanner);
 		dictionnaireNode.put(ZoneErudit.getId(), ZoneErudit);
 
@@ -290,7 +290,8 @@ public class Game {
 
 		ChanceNode epreuveChance = new ChanceNode(
 				"Vous êtes soudainement transporté dans un monde étrange où le destin semble fluctuer au gré du hasard.\n"
-						+ "Une force mystérieuse façonne votre réalité. Vous sentez que quelque chose d'inattendu va se produire...",
+						+ "Une force mystérieuse façonne votre réalité. \n"
+						+ "Vous sentez que quelque chose d'inattendu va se produire...",
 				1, i++, 0, 0, 0, 0, 0, null, scanner);
 		dictionnaireNode.put(epreuveChance.getId(), epreuveChance);
 
@@ -300,9 +301,9 @@ public class Game {
 				+ "l'empathie sont nos valeurs principales. /n"
 				+ "Voici votre premiere epreuve en tant qu'Altruiste :\n"
 				+ "Un prisonnier se trouve face à trois pièces et il est forcé d’entrer dans l’une des trois. \n"
-				+ " Mais… il peut choisir la pièce de son choix. \n "
+				+ "Mais… il peut choisir la pièce de son choix. \n "
 				+ "1. La première pièce brûle. \n"
-				+ "2. La deuxième est équipée d’explosifs qui exploseront dès qu’il entrera. "
+				+ "2. La deuxième est équipée d’explosifs qui exploseront dès qu’il entrera. \n"
 				+ "3. Dans la troisième se trouvent deux lions qui n’ont pas mangé depuis des années. \n"
 				+ "   Quelle pièce le prisonnier doit-il choisir pour survivre ?\n"
 				, 3, i + 1, 3, 0, 0, 0, 0, outil, scanner);
@@ -354,8 +355,8 @@ public class Game {
 
 		TerminalNode Divergent = new TerminalNode(
 				"Tes choix audacieux et divergents ont tracé un chemin unique, mais dans le monde implacable de Divergente, la divergence a un prix. Les dirigeants, "
-						+ "intolérants envers la déviation, ont scellé ton destin. Ta partie s'achève ici. "
-						+ "Prépare-toi à affronter les conséquences de ta divergence.",
+						+ "intolérants envers la déviation, ont scellé ton destin. Ta partie s'achève ici. \n"
+						+ "Affronte les conséquences de ta divergence.",
 				i + 6);
 		dictionnaireNode.put(Divergent.getId(), Divergent);
 
@@ -681,7 +682,8 @@ public class Game {
 		
 
 		choixFaction.setFactions(FactionAl, FactionAud, FactionEr, FactionFr, FactionSinc, Divergent);
-
+		 fingrade.setGrade(fin, Novice,Apprentice,Journeyman ,Master,Expert);
+		
 		premiereEpreuve.setOptions(List.of(ChoixCouteau, ChoixFromage, ChoixLivre, ChoixEcharpe, ChoixJournal));
 
 		ChoixLivre.setOptions(List.of(ChoixEr, ChoixCouteau));
@@ -737,6 +739,7 @@ public class Game {
 		Ep5Fr.setOptions(List.of(fingrade, fingrade, fingrade, epreuveChance2));
 		Ep5R.setOptions(List.of(fingrade, fingrade, epreuveChance2, fingrade));
 		
+		 epreuveChance2.setOptions(List.of(fingrade));
 		
 		this.currentNode = debut;
 
