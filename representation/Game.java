@@ -120,6 +120,8 @@ public class Game {
 
 	public void initEpreuve(Scanner scanner) {
 		int i = 0;
+		//REVOIR LES IMAGES 
+		//List<String> imagePaths={"Image/Antoine.jpg","Image/Christiana.jpg","Emily.jpg"};
 		DecisionNode premiereEpreuve = new DecisionNode(
 				"Vous savourez une gorgée du mystérieux sérum qui coule dans vos veines, imprégnant chaque\n"
 				+ " coin de votre être d'une énergie inconnue. À peine le liquide touche-t-il votre palais que \n "
@@ -138,6 +140,7 @@ public class Game {
 						+ persoPossibles[3].getDescription() + "\nPersonnage 5:\n" + persoPossibles[4].getNom()
 						+ persoPossibles[4].getDescription(),
 				i++, 0, 0, 0, 0, 0, null, scanner);
+		//ImageNode.displayImages(imagePaths);
 		i++;
 		dictionnaireNode.put(debut.getId(), debut);
 		DecisionNode ChoixCouteau = new DecisionNode(
