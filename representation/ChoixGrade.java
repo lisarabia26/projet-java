@@ -60,9 +60,9 @@ public class ChoixGrade extends InnerNode{
 			return Grades.NOVICE;
 		} else if (factionPoints < 20) {
 			return Grades.APPRENTICE;
-		} else if (factionPoints < 30) {
+		} else if (factionPoints < 25) {
 			return Grades.JOURNEYMAN;
-		} else if (factionPoints < 40) {
+		} else if (factionPoints < 30) {
 			return Grades.EXPERT;
 		} else {
 			return Grades.MASTER;
