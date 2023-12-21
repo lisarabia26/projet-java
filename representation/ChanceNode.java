@@ -60,7 +60,7 @@ public class ChanceNode extends InnerNode {
      * @param joueur Le personnage du joueur.
      */
     private void RandomPT(Outil outil, Personnage joueur) {
-        int pointChance = new Random().nextInt(11) - 5;
+        int pointChance = new Random().nextInt(15);
 
         if (outil != null) {
         	outil.setStat(outil.getStat() + pointChance);

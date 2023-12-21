@@ -565,8 +565,9 @@ public class Game {
 		
 		
 		DecisionNode Ep5Al = new DecisionNode("Altruiste, tu te trouves desormais face à une énigme philosophique. \n "
-				+ "Peut-tu résoudre ce dilemme en utilisant ta vision altruiste du monde ?\n"
-				+ "\n"
+				+ "Peux-tu résoudre ce dilemme en utilisant ta vision altruiste du monde ?\n"
+				+ "Pour moi l'accouchement est avant la grossesse, l'enfance avant la naissance, l'adolescence avant l'enfance, la mort\r\n"
+				+ "avant la vie. Qui suis-je?\n"
 				+ "1. Le cycle de la vie et de la mort.\n"
 				+ "2. Le dictionnaire \n"
 				+ "3. La réincarnation .\n"
@@ -702,6 +703,8 @@ public class Game {
 		ZoneSincere.setOptions(List.of(epreuveChance, epreuveChance));
 		epreuveChance.setOptions(List.of(choixFaction));
 		choixFaction.setOptions(List.of(FactionAl, FactionAud, FactionEr, FactionFr, FactionSinc, Divergent));
+		fingrade.setOptions(List.of(fin, Novice, Apprentice, Journeyman, Master, Expert));
+
 
 		FactionSinc.setOptions(List.of(Ep2S, fingrade, fingrade, fingrade, fingrade));
 		FactionEr.setOptions(List.of(Ep2R, fingrade, fingrade, fingrade, fingrade));
@@ -734,8 +737,7 @@ public class Game {
 		Ep5Fr.setOptions(List.of(fingrade, fingrade, fingrade, epreuveChance2));
 		Ep5R.setOptions(List.of(fingrade, fingrade, epreuveChance2, fingrade));
 		
-
-
+		
 		this.currentNode = debut;
 
 	}
