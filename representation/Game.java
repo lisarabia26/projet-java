@@ -247,7 +247,7 @@ public class Game {
 
 		DecisionNode ZoneAudacieux = new DecisionNode(
 				"Dans la Zone des Audacieux, " + "face à un mur imposant, deux potions s'offrent a vous, choisissez avec sagesse, votre décision impacte votre destinée et la perception \"\n"
-						+ "						de votre courage par les évaluateurs :" + "\n"
+						+ "						de votre courage par les évaluateurs :\n" 
 						+ "1. Surmonter le mur seul, démontrant une indépendance audacieuse, ou\n"
 						+ "2. Collaborer en formant une échelle humaine, mettant en avant la force de la coopération.\n"
 						+ "\n" ,
@@ -681,7 +681,8 @@ public class Game {
 		
 
 		choixFaction.setFactions(FactionAl, FactionAud, FactionEr, FactionFr, FactionSinc, Divergent);
-
+		 fingrade.setGrade(fin, Novice,Apprentice,Journeyman ,Master,Expert);
+		
 		premiereEpreuve.setOptions(List.of(ChoixCouteau, ChoixFromage, ChoixLivre, ChoixEcharpe, ChoixJournal));
 
 		ChoixLivre.setOptions(List.of(ChoixEr, ChoixCouteau));
@@ -737,6 +738,7 @@ public class Game {
 		Ep5Fr.setOptions(List.of(fingrade, fingrade, fingrade, epreuveChance2));
 		Ep5R.setOptions(List.of(fingrade, fingrade, epreuveChance2, fingrade));
 		
+		 epreuveChance2.setOptions(List.of(fingrade));
 		
 		this.currentNode = debut;
 
