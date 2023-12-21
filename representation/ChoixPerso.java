@@ -7,6 +7,8 @@ import univers.Personnage;
 /**
  * La classe ChoixPerso représente un nœud de décision spécifique où l'utilisateur doit choisir un personnage parmi
  * une liste de personnages possibles. Le choix du personnage influence le déroulement du scénario.
+ *
+ *@see DecisionNode
  */
 public class ChoixPerso extends DecisionNode {
 	Personnage[] persoPossibles;

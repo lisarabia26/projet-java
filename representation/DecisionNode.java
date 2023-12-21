@@ -5,6 +5,10 @@ import univers.Outil;
 /**
  * La classe DecisionNode représente un nœud de décision dans une structure de graphe.
  * L'utilisateur est invité à faire un choix parmi plusieurs options.
+ * 
+ * @author RABIA Lysa et NASR Rachelle
+ * @see InnerNode
+ * 
  */
 
 public class DecisionNode extends InnerNode {

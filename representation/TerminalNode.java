@@ -3,6 +3,9 @@ package representation;
 /**
  * La classe TerminalNode représente un nœud terminal dans une structure de graphe.
  * Un nœud terminal ne peut pas être suivi par un autre nœud.(c'est donc la fin de l’histoire)
+ * 
+ * @author RABIA Lysa et NASR Rachelle
+ * @see Node
  */
 
 public class TerminalNode extends Node {

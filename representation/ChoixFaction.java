@@ -9,6 +9,8 @@ import univers.Factions.Faction;
 /**
  * La classe ChoixFaction représente un nœud de décision où le joueur est attribué à une faction en fonction de ses
  * points dans chaque dimension de personnalité. La faction choisie affecte le déroulement du scénario.
+ * 
+ * @see InnerNode
  */
 public class ChoixFaction extends InnerNode {
 	Personnage currentPerso;

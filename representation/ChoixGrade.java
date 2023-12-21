@@ -4,7 +4,21 @@ import univers.Outil;
 import univers.Factions.Faction;
 import univers.Grade.Grades;
 
-public class ChoixGrade extends InnerNode{
+/**
+ * La classe `ChoixGrade` représente un nœud de décision dans une structure arborescente pour attribuer des grades
+ * à un personnage en fonction des points de faction.
+ * Elle étend la classe `InnerNode` et contient des nœuds terminaux pour différentes options de grade.
+ *
+ * @author RABIA Lysa et NASR Rachelle
+ * @version 2.1
+ * @since 02/12/23
+ * @see InnerNode
+ */
+
+/**
+ * Représente un nœud de décision pour choisir un grade pour un personnage en fonction des points de faction.
+ */
+ public class ChoixGrade extends InnerNode{
 	Personnage currentPerso;
 	TerminalNode fin ;
 	TerminalNode Novice;
@@ -13,6 +27,26 @@ public class ChoixGrade extends InnerNode{
 	TerminalNode Expert;
 	TerminalNode Master ;
 
+	/**
+     * Construit un nouvel objet `ChoixGrade`.
+     *
+     * @param currentPerso Le personnage pour lequel le grade est choisi.
+     * @param description  La description du nœud.
+     * @param fin          Le nœud terminal représentant la fin de l'arbre de décision.
+     * @param Novice       Le nœud terminal pour le grade Novice.
+     * @param Apprentice   Le nœud terminal pour le grade Apprentice.
+     * @param Journeyman   Le nœud terminal pour le grade Journeyman.
+     * @param Expert       Le nœud terminal pour le grade Expert.
+     * @param Master       Le nœud terminal pour le grade Master.
+     * @param nbreOptions  Le nombre d'options disponibles dans ce nœud.
+     * @param id           L'identifiant unique de ce nœud.
+     * @param pointAl      Les points de faction liés à la faction Altruiste.
+     * @param pointAud     Les points de faction liés à la faction Audacieuse.
+     * @param pointEr      Les points de faction liés à la faction Érudite.
+     * @param pointFr      Les points de faction liés à la faction Fraternelle.
+     * @param pointSinc    Les points de faction liés à la faction Sincère.
+     * @param outil        L'outil associé à ce nœud.
+     */
 
 	public ChoixGrade(Personnage currentPerso,String description,TerminalNode fin ,TerminalNode Novice,TerminalNode Apprentice ,TerminalNode Journeyman ,
 	TerminalNode Expert,TerminalNode Master , int nbreOptions, int id, int pointAl, int pointAud, int pointEr, int pointFr,
@@ -21,6 +55,18 @@ public class ChoixGrade extends InnerNode{
 		this.currentPerso = currentPerso;
 	}
 	
+
+	/**
+     * Définit les nœuds terminaux pour différentes options de grade.
+     *
+     * @param fin        Le nœud terminal représentant la fin de l'arbre de décision.
+     * @param Novice     Le nœud terminal pour le grade Novice.
+     * @param Apprentice Le nœud terminal pour le grade Apprentice.
+     * @param Journeyman Le nœud terminal pour le grade Journeyman.
+     * @param Expert     Le nœud terminal pour le grade Expert.
+     * @param Master     Le nœud terminal pour le grade Master.
+     */
+		
 	public void setGrade(TerminalNode fin,TerminalNode Novice,TerminalNode Apprentice ,TerminalNode Journeyman ,TerminalNode Expert,TerminalNode Master ) {
 		this.fin = fin;
 		this.Novice= Novice;
@@ -29,6 +75,13 @@ public class ChoixGrade extends InnerNode{
 		this. Expert =  Expert;
 		this.Master = Master;
 	}
+	
+	 /**
+     * Attribue un grade au personnage en fonction des points de faction et des statistiques de l'outil.
+     *
+     * @param currentPerso Le personnage pour lequel le grade est attribué.
+     * @return Le grade attribué.
+     */
 
 	public static Grades assignGrade(Personnage currentPerso) {
 		int factionPoints=0;
@@ -70,6 +123,12 @@ public class ChoixGrade extends InnerNode{
 	}
 
 
+	
+	/**
+     * Choisis le prochain nœud dans l'arbre de décision en fonction du grade attribué.
+     *
+     * @return Le prochain nœud dans l'arbre de décision.
+     */
 
 	@Override
 	public Node chooseNext() {

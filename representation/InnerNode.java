@@ -7,6 +7,9 @@ import java.util.List;
  * La classe abstraite InnerNode représente un nœud interne dans une structure de graphe.
  * Un InnerNode est un nœud non terminal du graphe
  * Un InnerNode possède des neouds fils qui vont aider au déroulement de l'histoire. 
+ * 
+ * @author RABIA Lysa et NASR Rachelle
+ * @see Node
  */
 public abstract class InnerNode extends Node {
 	int pointAlGagne;
