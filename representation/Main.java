@@ -3,7 +3,33 @@ package representation;
 
 import java.util.Scanner;
 
+
+/**
+ * La classe Main représente le point d'entrée du jeu Divergente. Il permet aux joueurs
+ * de commencer et de jouer à travers le monde mystérieux du jeu en faisant des choix
+ * qui influencent le déroulement de l'histoire.
+ *
+ * Toutes les interactions avec le joueur se font à travers cette classe.
+ *
+ * @author RABIA Lysa et NASR Rachelle
+ * @version 7.2
+ */
+
 public class Main {
+	/**
+	 * Méthode principale qui démarre le jeu Divergente.
+	 * 
+	 * <p>
+	 * 
+	 * Le jeu se déroule dans une boucle while, où chaque itération représente un
+	 * nouvel événement dans l'histoire du jeu. La boucle continue jusqu'à ce que le
+	 * joueur atteigne un nœud terminal, marquant la fin du jeu. Pendant le jeu,
+	 * l'utilisateur est invité à faire des choix qui influencent le déroulement de l'histoire.
+	 * 
+	 * </p>
+	 *
+	 * @param args Les arguments de la ligne de commande (non utilisés dans cette application).
+	 */
 	public static void main(String[] args) {
 		System.out.println(
 				"Le monde que tu t'apprêtes à explorer est un lieu mystérieux, où les frontières entre réalité et illusion s'estompent.\n"
@@ -14,14 +40,19 @@ public class Main {
 						+ "Choisis avec sagesse, car le destin de Divergente t'appelle, et tu es sur le point d'écrire ton propre chapitre. Que l'aventure commence...");
 		Scanner console = new Scanner(System.in);
 		Game jeu = new Game(console);
-
+		String filePath = "Son/Son.wav";
 		while (!(jeu.currentNode instanceof TerminalNode)) {
+			SoundNode.playSound(filePath);
 			
 			jeu.currentNode = jeu.currentNode.chooseNext();
-			if (jeu.currentNode instanceof DecisionNode)
+			if (jeu.currentNode instanceof DecisionNode) {
 				((DecisionNode) jeu.currentNode).init(jeu.currentPerso);
-			if (jeu.currentNode instanceof ChanceNode)
+			 	
+			}
+			if (jeu.currentNode instanceof ChanceNode) {
 				((ChanceNode) jeu.currentNode).init(jeu.currentPerso);
+				
+			}
 			System.out.print("Voulez vous quitter et sauvegarder la partie ? (O/N) : ");
 			String choix = console.next().toUpperCase();
 			if (choix.equals("O")) {

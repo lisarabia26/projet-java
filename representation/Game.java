@@ -676,7 +676,7 @@ public class Game {
 		
 		ChoixGrade fingrade= new ChoixGrade (currentPerso," ",fin, Novice,Apprentice,Journeyman,Master,Expert, 6, i++, 0, 0, 0, 0, 0, outil);
 		dictionnaireNode.put(fingrade.getId(), fingrade);
-
+ 
 	
 		
 
