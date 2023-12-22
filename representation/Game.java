@@ -612,13 +612,13 @@ public class Game {
 				i++);
 		dictionnaireNode.put(Journeyman.getId(), Journeyman);
 
-		TerminalNode Expert = new TerminalNode("Helas, la partie se termine pour toi ! \n"
+		TerminalNode Expert = new TerminalNode("Helas, toute les bonne chose ont une fin ! \n"
 				+ "Tu as obtenu le grade d'expert, bravo et bon boulot, tu feras peut etre encore mieux la prochaine fois, \n"
 				+ "à bientot ! \n", i++);
 		dictionnaireNode.put(Expert.getId(), Expert);
 
 		TerminalNode Master = new TerminalNode("Helas, toutes les bonnes choses ont une fin ! \n"
-				+ "Tu as obtenu le grade de Master, le grade maximal dans le monde de Divergent, tu es desormais a la tete de ta faction, \n"
+				+ "Tu as obtenu le grade de Master, le grade maximal dans le monde de Divergent, tu es desormais à la tete de ta faction, \n"
 				+ "à bientot pour de nouvelles aventures ! ", i++);
 		dictionnaireNode.put(Master.getId(), Master);
 
