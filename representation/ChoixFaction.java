@@ -143,31 +143,4 @@ public class ChoixFaction extends InnerNode {
 }
 
  
-  /*
-  if (joueur.isDivergent()) { return new
-  TerminalNode("Vous êtes Divergent. Le jeu prend fin pour vous.",
-  this.getId()); }
-  
-  
-  if (joueur.arePointsBalanced()) { return new
-  TerminalNode("Vous n'avez pas réussi à vous aligner sur une faction spécifique. "
-  + "Le jeu prend fin pour vous en tant que Divergent.", this.getId()); }
-  
-  
-  Faction factionAttribuee = joueur.getFactionDominante();
-  
-  
-  System.out.println("Vous avez rejoint la faction " +
-  factionAttribuee.getNom());
-  
-  
-  Outil outilFaction = Outil.setOutilFromFaction(factionAttribuee);
-  joueur.setOutil(outilFaction);
-  
-  switch (factionAttribuee) { case ALTRUISTE: return new
-  DecisionNode("Description de l'épreuve Altruiste", 2, 0, 0, 0, 0, 0,
-  outilFaction); case AUDACIEUX: return new
-  DecisionNode("Description de l'épreuve Audacieux", 3, 0, 0, 0, 0, 0,
-  outilFaction); // Ajoutez des cas pour les autres factions default: return
-  new TerminalNode("Erreur : Faction inconnue", -1); } } } }
- */
+ 

@@ -1,6 +1,7 @@
 package representation;
 
 
+import java.util.List;
 import java.util.Scanner;
 
 
@@ -55,6 +56,7 @@ public class Main {
 			}
 			System.out.print("Voulez vous quitter et sauvegarder la partie ? (O/N) : ");
 			String choix = console.next().toUpperCase();
+			System.out.println("\n");
 			if (choix.equals("O")) {
 				System.out.print("Entrez le nom de la sauvegarde : ");
 				String nomFichier = console.next() + console.nextLine();

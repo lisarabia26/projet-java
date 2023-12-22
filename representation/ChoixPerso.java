@@ -1,5 +1,6 @@
 package representation;
 
+import java.util.List;
 import java.util.Scanner;
 import univers.Outil;
 import univers.Personnage;
@@ -45,6 +46,8 @@ public class ChoixPerso extends DecisionNode {
      * @return Le nœud représentant la première épreuve après le choix du personnage.
      */
 	public Node chooseNext() {
+		List<String> imagePaths = List.of("Image/Antoine.jpg", "Image/Christiana.jpg", "Image/Emily.jpg", "Image/Sophie.jpg", "Image/Julien.jpg");
+		ImageNode.displayImages(imagePaths);
 		System.out.println(this.description);
 		System.out.println("Faites un choix :");
 		while (true) {
@@ -56,6 +59,8 @@ public class ChoixPerso extends DecisionNode {
 			}
 
 			this.currentPerso.copie(persoPossibles[choix]);
+			List<String> imagePaths2 = List.of("Image/Couteau.jpg", "Image/Fromage.jpg", "Image/Livre.jpg", "Image/Echarpe.jpg", "Image/Journal.jpg");
+			ImageNode.displayImages(imagePaths2);
 			return this.premiereEpreuve;
 		}
 	}

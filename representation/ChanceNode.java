@@ -7,6 +7,8 @@ import univers.*;
 /**
  * La classe ChanceNode représente un nœud de décision basé sur le hasard. Il génère un événement aléatoire
  * affectant le joueur et influant sur le déroulement du scénario.
+ * 
+ * @see InnerNode
  */
 public class ChanceNode extends InnerNode {
     Scanner scanner;
@@ -88,43 +90,4 @@ public class ChanceNode extends InnerNode {
     }
 }
 
-/*notre epreuve de chancde consiste a:
- 				1-on a genere un nombre aleatoire entre -5 et 5 qui va etre ajoute a la puissance de l'objet
- 				2-cette epreuve va agir sur la suite de l'histoire:
- 							Le scenario differe pour chaque faction selon l'objet. 
- 							Si le nombre de point du perso + celui de l'objet est insuffisant, le jouer perd la partie
- 							On estt ensuite dirige vers le ter;inalNode ou si gagne vers un decisionNode
- */
-	
-	
-	
-	
-	/*@Override-----------------------A FINIR-----------------------------------------
-	public Node chooseNext() {
-		switch (pointChance) {
-		case 0:
-			// Implémentez la logique pour pointChance == 0
-			return new Node("Vous avez rencontré un personnage amical.", 1);
-
-		case 1:
-			// Implémentez la logique pour pointChance == 1
-			return new Node("Vous avez trouvé un trésor caché.", 2);
-
-		case 2:
-			// Implémentez la logique pour pointChance == 2
-			return new Node("Vous avez affronté un défi dangereux.", 3);
-
-		default:
-			// Gérez les valeurs inattendues ou ajoutez plus de cas au besoin
-			return new Node("Quelque chose d'inattendu s'est produit.", 4);
-		}
-	}
-	
-	if(joueur.faction == 'fraternelle')
-	{
-		Pelle p = (Pelle) joueur.outil;
-		joueur.outil.setPuissance(p.getPuissance() + 10)
-	}
-
-*/
 

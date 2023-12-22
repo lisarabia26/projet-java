@@ -14,7 +14,7 @@ import univers.Personnage;
  * description. Les classes dérivées peuvent implémenter la méthode chooseNext
  * pour définir le comportement du choix du prochain nœud.
  */
-public abstract class Node {
+public abstract class Node{
 	protected String description;
 	private int id;
 

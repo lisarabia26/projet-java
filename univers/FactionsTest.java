@@ -3,12 +3,22 @@ package univers;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 import univers.Factions.Faction;
+/**
+ * La classe FactionsTest est une classe de test unitaire pour la classe Factions.
+ * Elle vérifie le bon fonctionnement des méthodes de la classe Factions.
+ *
+ * @author RABIA Lysa et NASR Rachelle
+ * @version 1.0
+ */
 
 public class FactionsTest {
-
+	
+	/**
+     * Teste la méthode getNom() de la classe Factions.
+     */
     @Test
     public void testGetNom() {
-        // Teste la méthode getNom de chaque faction
+       
         assertEquals("Altruiste", Faction.ALTRUISTE.getNom());
         assertEquals("Audacieux", Faction.AUDACIEUX.getNom());
         assertEquals("Fraternel", Faction.FRATERNEL.getNom());
@@ -17,9 +27,12 @@ public class FactionsTest {
         assertEquals("Sans Faction", Faction.SANS_FACTION.getNom());
     }
 
+    /**
+     * Teste la méthode getFactionFromString() de la classe Factions.
+     */
     @Test
     public void testGetFactionFromString() {
-        // Teste la méthode getFactionFromString
+       
         assertEquals(Faction.ALTRUISTE, Faction.getFactionFromString("Altruiste"));
         assertEquals(Faction.AUDACIEUX, Faction.getFactionFromString("Audacieux"));
         assertEquals(Faction.FRATERNEL, Faction.getFactionFromString("Fraternel"));
@@ -27,7 +40,7 @@ public class FactionsTest {
         assertEquals(Faction.SINCÈRE, Faction.getFactionFromString("Sincère"));
         assertEquals(Faction.SANS_FACTION, Faction.getFactionFromString("Sans Faction"));
         
-        // Teste le cas où le nom de la faction est inconnu jsp si je mets 
+        //Teste avec une faction inconnue 
         assertEquals(null, Faction.getFactionFromString("Faction Inconnue"));
     }
 }
